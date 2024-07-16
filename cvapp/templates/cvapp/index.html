@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <title>Document</title>
+</head>
+<body id="inx" style='background-image: url("{% static "image/uhq.jpg" %}");'>
+    <header>
+        <strong>MY_PORTFOLIO</strong>
+        <hr>
+    </header>
+
+    <main >
+        <section>
+            <article>
+                <span><h2>HI !!</h2>
+                <span><h1>I'm ANIRUDH.V</h1></span>
+                
+            </article>
+            <button type="submit"><a href="{% url 'homee' %}">About Me</a></button>
+        </section>
+        
+    </main>
+
+</body>
+</html>

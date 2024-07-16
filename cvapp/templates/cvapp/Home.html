@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" media="screen">
+    <script src="{% static 'script/feeds.js'%}"></script>
+</head>
+<body id="home">
+ 
+<header>
+    <nav>
+        <h3>
+            MY_PORTFOLIO
+        </h3><hr>
+        <ul>
+            <li>Create</li>
+            <li>:</li>
+        </ul>
+    </nav>
+</header>
+
+
+<main style='background-image: url("{% static "image/cool.png" %}");'>
+    <aside class="side">
+        <figure class="card">
+            <img src="{% static 'image/ANIRUDH.V.jpg' %}">
+            <figcaption>ANIRUDH.V</figcaption>
+        </figure>
+        <span>
+            <h3>HI! there I'm</h3><h3>FULL-STACK  PYTHON  DEVELOPER</h3>
+        </span>
+    </aside>
+
+    <section class="obj">
+        <article>
+            <span><h4>OBJECTIVE</h4></span>
+            <div id="ective">
+                
+                <p>
+                    Knowledgeable, data-driven, and adaptive web developer with Full Stack Developer and recent graduate in Bachelor of Science in Computer Science. Along with hands on experience gained through course work, projects. Proven ability to quick learn, Collaborative and detail-oriented team player with keen interest to work with a team to develop for organization. Demonstrates excellent problem solving abilities, strong work ethic. Seeking an entry level position in reputed organization to leverage my skills and contribute to the success of company. 
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <section class="ed">
+        <article>
+            <span><h4>EDUCATION</h4></span>
+            <div id="ucate">
+                <div>  
+                   
+                    <strong>Bsc  Computer Science – Manonmaniam Sundaranar University -- Tirunelveli </strong>
+                    <ul>
+                        <li>August/2020 – May/2023</li>  
+                        <li>CGPA – 8.16/10</li>
+                    </ul>
+                </div> <hr>
+                <div>
+                    <strong>12th – Nalanda Matriculation Higher Secondary School -- Krishnagiri </strong>
+                    <ul>
+                        <li>June /2019 – March /2020  </li>    			
+                        <li>Percentage -- 70.3 / 100</li>   
+                    </ul>
+                </div><hr>
+                <div>
+                    <strong>CERTIFICATION </strong>
+                    <ul>
+                    <li>Certified Full-Stack Python Developer ----- Caddesk,2023.</li></ul>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="cou">
+        <article>
+            <span><h4>COURSE</h4></span>
+            <div id="rse">
+                <div>
+                    <strong>Fullstack Python Developer </strong>
+                    <ul>
+                        <li>  	This course helped me to understand the basic concept of web application development.</li>
+                        <li>  	Describe how to work with front-end and back-end . Also maintain a database in both relational and non relational. </li>
+                    </ul>
+                    
+                </div>
+                <div>
+                    <strong>TECHNICAL  SKILLS</strong>
+                    <span>      
+                        <ul>            
+                            <li>Languages	:   Python </li>
+                            <li>Framework 	:   Django , Django REST_framework </li>	  
+                            <li>Databases   :   MySQL , Mongodb </li>
+                            <li>Familiar     :  Html , CSS , JavaScript , Bootstrap </li>  
+                            <li>Tools Familiar  :vs Code ,  Git & GitHub</li>
+                        </ul> 
+                    </span>
+                </div>
+            </div>
+        </article>
+    </section>
+
+</main>
+<footer class="foot">
+    <section class="social_media">
+        <article>
+            <ul>
+                <li >
+                    <a  href="https://web.whatsapp.com/">
+                            <img src="{% static 'image/whatsapp.svg' %}" alt="" id="wa"></a></li>
+                <li>
+                    <a href="https://www.instagram.com/">
+                        <img src="{% static 'image/instagram.svg' %}" alt="" id="in"></a></li>
+                <li>
+                    <a href="https://www.facebook.com/">
+                        <img src="{% static 'image/facebook.svg' %}" alt="" id="fb"></a></li>
+                <li>
+                    <a href="https://web.telegram.org/">
+                        <img src="{% static 'image/telegram.svg' %}" alt="" id="tl"></a></li>
+                <li>
+                    <a href="https://www.linkedin.com/">
+                        <img src="{% static 'image/linkedin.svg' %}" alt="" id="lin"></a></li>
+                <li>
+                    <a href="https://x.com/?lang=en">
+                        <img src="{% static 'image/square-x-twitter.svg' %}" alt="" id="x"></a></li>
+        </article>
+    </section>
+ 
+    <section id="social">
+        <article class="feedback">
+            <strong>Feel Free to Send us your Feedback....</strong><br><hr>
+            <form method="post" name="comment_post">
+                {% csrf_token %}
+
+                <small>NAME :</small>
+                <input type="text" name="Name" id="" placeholder="ABCDEFGHIJKLMNOPQRSTUVWXYZ"><br>
+
+                <small>Email:</small>
+                <input type="email" name="Email" id="" placeholder=".......@gmail.com"><br>
+
+                <textarea name="feed" id="" cols="30" rows="10" placeholder="Type your feed here..."></textarea><hr>
+
+                <button type="submit" onclick='return req()'>send</button>
+            </form>
+        </article><hr>
+    </section>
+
+    <section class="copy">
+            <article >
+                <figure >
+                    <img src="{% static 'image/copyright-solid.svg' %}" alt="">
+                    <figcaption>Copyrights actions are under ANIRUDH.V ...</figcaption>
+                </figure>
+
+            </article>
+    </section>
+
+    <section>
+        <div class="comment">
+            <strong>COMMENTS!</strong><br>
+            {% for i in data %}
+            <div>
+                <small>Name:{{i.Name}} </small><br>
+                <small>posted: {{i.created | timesince}}</small> 
+                <p>comment:{{i.feed}}</p>
+            </div><hr>
+        {% endfor %}
+        </div>
+    </section>
+
+</footer>
+
+</body>
+</html>
